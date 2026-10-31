@@ -1,0 +1,34 @@
+/* The Approve page: plain, readable, one column. Before and after are shown exactly as stored, so white space and any
+   markup in the text stay visible rather than rendered. */
+:root { --nuo-ink: #141414; --nuo-paper: #fbfaf7; --nuo-muted: #5b5852; --nuo-line: #d9d5cc; --nuo-was: #f3efe6; --nuo-now: #eaf3ec;
+  --nuo-go: #14532d; --nuo-go-ink: #ffffff; --nuo-bad: #9b1c1c; --nuo-focus: #1d4ed8; color-scheme: light dark; }
+@media (prefers-color-scheme: dark) {
+  :root { --nuo-ink: #f1efe9; --nuo-paper: #141414; --nuo-muted: #b3afa6; --nuo-line: #3b3934; --nuo-was: #24221e; --nuo-now: #16271c;
+    --nuo-go: #4ade80; --nuo-go-ink: #08130c; --nuo-bad: #fca5a5; --nuo-focus: #93c5fd; }
+}
+* { box-sizing: border-box; }
+body.nuo-approve { margin: 0; background: var(--nuo-paper); color: var(--nuo-ink); font: 17px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 40rem; margin: 0 auto; padding: 32px 16px 48px; }
+h1 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 16px; }
+h1:focus { outline: none; }
+h2 { font-size: 1rem; margin: 0 0 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+p { margin: 0 0 16px; }
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 0 0 24px; padding: 12px 16px; border: 1px solid var(--nuo-line); border-radius: 8px; }
+.facts dt { color: var(--nuo-muted); }
+.facts dd { margin: 0; overflow-wrap: anywhere; font-weight: 600; }
+.changes { list-style: none; padding: 0; margin: 0 0 24px; }
+.changes li { padding: 16px 0; border-top: 1px solid var(--nuo-line); }
+.label { margin: 0 0 4px; font-size: 0.85rem; color: var(--nuo-muted); }
+.was, .now { white-space: pre-wrap; overflow-wrap: anywhere; padding: 8px 12px; border-radius: 6px; }
+.was { background: var(--nuo-was); }
+.now { background: var(--nuo-now); font-weight: 600; }
+.act { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0 16px; }
+button { font: inherit; min-height: 44px; padding: 8px 20px; border-radius: 8px; border: 1px solid var(--nuo-line); background: transparent; color: var(--nuo-ink); cursor: pointer; }
+button.go { background: var(--nuo-go); color: var(--nuo-go-ink); border-color: var(--nuo-go); font-weight: 600; }
+button:disabled { opacity: 0.6; cursor: progress; }
+button:focus-visible, .key:focus-visible { outline: 3px solid var(--nuo-focus); outline-offset: 2px; }
+.key { white-space: pre-wrap; overflow-wrap: anywhere; font: 0.85rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; padding: 12px; border: 1px solid var(--nuo-line); border-radius: 6px; margin: 0 0 12px; user-select: all; }
+.check { font: 700 1.6rem ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.1em; }
+.key + button { margin: 0 0 24px; }
+.bad { color: var(--nuo-bad); }
+.bad:empty { display: none; }
